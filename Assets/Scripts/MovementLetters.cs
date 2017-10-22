@@ -6,12 +6,12 @@ public class MovementLetters : MonoBehaviour {
 
     //ajustar speed de rotação
     [SerializeField]
-    float rotationSpeed;
+    private float rotationSpeed;
     [SerializeField]
-    float movementSpeed;
+    private float movementSpeed;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         	
 	}
 	
@@ -24,13 +24,13 @@ public class MovementLetters : MonoBehaviour {
     {
         if (Input.GetAxisRaw("HorizontalLetters") != 0)
         {
-            transform.Rotate(Vector3.forward * rotationSpeed * Time.deltaTime * Input.GetAxisRaw("Horizontal"));
+            transform.Rotate(Vector3.back * rotationSpeed * Time.deltaTime * Input.GetAxisRaw("Horizontal"));
             print(transform.rotation);
         }
 
         if (Input.GetAxisRaw("VerticalLetters") != 0)
         {
-            transform.Translate(Vector2.up * movementSpeed * Time.deltaTime * Input.GetAxisRaw("Vertical"));
+            transform.Translate(Vector2.right * movementSpeed * Time.deltaTime * Input.GetAxisRaw("Vertical"));
             print(transform.position);
         }
     }
