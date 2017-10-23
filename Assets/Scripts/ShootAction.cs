@@ -2,32 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShootAction : MonoBehaviour {
-
+public class ShootAction : MonoBehaviour
+{
     [SerializeField]
     private GameObject bullet;
     [SerializeField]
-    private Transform playerShootPosition;
+    private Transform shotPoint;
     [SerializeField]
     private KeyCode key;
-    [SerializeField]
-    private GameObject parent;
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     private void FixedUpdate()
     {
         if (Input.GetKeyDown(key))
         {
-            Instantiate(bullet, parent.transform);
+            Instantiate(bullet, shotPoint.position, shotPoint.rotation * Quaternion.Euler(0, 0, 90));
         }
     }
 }
