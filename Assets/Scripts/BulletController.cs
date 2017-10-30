@@ -9,7 +9,7 @@ public class BulletController : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        transform.Translate(Vector2.down * movementSpeed * Time.deltaTime);
+        transform.Translate(Vector2.up * movementSpeed * Time.deltaTime);
     }
 
     private void OnTriggerStay2D(Collider2D collision)
