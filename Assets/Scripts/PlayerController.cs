@@ -10,7 +10,34 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private Image fillImage;
     [SerializeField] private Color zeroHealthColor;
     [SerializeField] private Color fullHealthColor;
+    [SerializeField] private Transform spawnPoint;
     private int currentHp;
+    private GameObject instance;
+    private int playerNumber;
+
+
+    private MovementController movement;
+    private ShootAction shooting;
+
+    public void setup()
+    {
+        movement = instance.GetComponent<MovementController>();
+        shooting = instance.GetComponent<ShootAction>();
+        movement.setPlayerNumber(playerNumber);
+        shooting.setPlayerNumber(playerNumber);
+
+        //Modificar as cores dos jogadores TODO: entender como funciona e reimplementar
+        /*
+        m_ColoredPlayerText = "<color=#" + ColorUtility.ToHtmlStringRGB(m_PlayerColor) + ">PLAYER " + m_PlayerNumber + "</color>";
+
+        MeshRenderer[] renderers = m_Instance.GetComponentsInChildren<MeshRenderer>();
+
+        for (int i = 0; i < renderers.Length; i++)
+        {
+            renderers[i].material.color = m_PlayerColor;
+        }
+        /**/
+    }
 
     private void Start()
     {
@@ -50,5 +77,25 @@ public class PlayerController : MonoBehaviour {
     public int getHp()
     {
         return currentHp;
+    }
+
+    public void setInstance(GameObject gameObject)
+    {
+        instance = gameObject;
+    }
+
+    public GameObject getInstance()
+    {
+        return instance;
+    }
+
+    public Transform getSpawnPoint()
+    {
+        return spawnPoint;
+    }
+
+    public void setPlayerNumber(int number)
+    {
+        playerNumber = number;
     }
 }

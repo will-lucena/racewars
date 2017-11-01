@@ -590,6 +590,7 @@ MonoBehaviour:
   fillImage: {fileID: 114675023178115524}
   zeroHealthColor: {r: 0.99264705, g: 0, b: 0, a: 0}
   fullHealthColor: {r: 0.2411764, g: 1, b: 0.051470578, a: 0}
+  spawnPoint: {fileID: 4032698850528948, guid: 319c3ba034f69274fb8bcd9534dd1c1f, type: 2}
 --- !u!114 &114570165976028460
 MonoBehaviour:
   m_ObjectHideFlags: 1

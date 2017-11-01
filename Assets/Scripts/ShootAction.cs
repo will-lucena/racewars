@@ -15,6 +15,7 @@ public class ShootAction : MonoBehaviour
     [SerializeField] private Color zeroAmmoColor;
     [SerializeField] private Color fullAmmoColor;
     private bool isReloading = false;
+    private int playerNumber;
 
     private void Start()
     {
@@ -24,7 +25,7 @@ public class ShootAction : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Input.GetKeyDown(key) && !isReloading)
+        if ((Input.GetKeyDown(key) || Input.GetAxisRaw("Fire") == -1) && !isReloading)
         {
             isReloading = true;
             Instantiate(bullet, shotPoint.position, shotPoint.rotation * Quaternion.Euler(0, 0, 0));
@@ -51,5 +52,10 @@ public class ShootAction : MonoBehaviour
         yield return new WaitForSeconds(time * 0.3f);
         ammoSlider.value = 1f;
         fillImage.color = Color.green;
+    }
+
+    public void setPlayerNumber(int number)
+    {
+        playerNumber = number;
     }
 }
