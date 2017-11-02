@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour {
 
-    private GameObject target;
+    [SerializeField] private GameObject target;
     private Vector3 offset = new Vector3(0, 0, -1);
+    private static int seed = 0;
+
+    private void Start()
+    {
+        GetComponent<Camera>().rect = new Rect(seed * 0.5f, 0f, 0.5f, 1f);
+        updateSeed();
+    }
 
     private void LateUpdate()
     {
@@ -18,5 +25,15 @@ public class CameraController : MonoBehaviour {
     public void setTarget(GameObject gameObject)
     {
         target = gameObject;
+    }
+
+    private static void updateSeed()
+    {
+        seed++;
+    }
+
+    public int getSeed()
+    {
+        return seed;
     }
 }

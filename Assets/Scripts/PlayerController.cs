@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private Image fillImage;
     [SerializeField] private Color zeroHealthColor;
     [SerializeField] private Color fullHealthColor;
-    [SerializeField] private Camera cameraView;
+    [SerializeField] private Camera cam;
     private int currentHp;
     private GameObject instance;
     private int playerNumber;
@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour {
     {
         movement = instance.GetComponent<MovementController>();
         movement.setPlayerNumber(playerNumber);
+
         fire = instance.GetComponent<ShootAction>();
         fire.setPlayerNumber(playerNumber);
 
@@ -36,14 +37,8 @@ public class PlayerController : MonoBehaviour {
         }
         cannon.setPlayerNumber(playerNumber);
 
-        Instantiate(cameraView, instance.transform.position, instance.transform.rotation);
-
-        cameraView.GetComponent<CameraController>().setTarget(instance);
-        cameraView.GetComponent<Camera>().rect = new Rect((playerNumber-1) * 0.5f, 0f, 0.5f, 1f);
-
-        healthSlider.value = currentHp * 10;
-        fillImage.color = Color.green;
-
+        cam.GetComponent<CameraController>().setTarget(instance);
+        
         //Modificar as cores dos jogadores TODO: entender como funciona e reimplementar
         /*
         m_ColoredPlayerText = "<color=#" + ColorUtility.ToHtmlStringRGB(m_PlayerColor) + ">PLAYER " + m_PlayerNumber + "</color>";
@@ -60,6 +55,8 @@ public class PlayerController : MonoBehaviour {
     private void Start()
     {
         currentHp = maxHp;
+        healthSlider.value = currentHp * 10;
+        fillImage.color = Color.green;
     }
 
     private void OnTriggerStay2D(Collider2D collision)
