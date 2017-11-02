@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class MovementController : MonoBehaviour
 {
-    //ajustar speed de rotação
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float movementSpeed;
     private int playerNumber = 1;
     private string movementAxisName;
     private string rotationAxisName;
-
     private float movementValue;
     private float rotationValue;
 

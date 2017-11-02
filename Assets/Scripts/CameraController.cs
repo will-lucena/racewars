@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraController : MonoBehaviour {
-
+public class CameraController : MonoBehaviour
+{
     [SerializeField] private GameObject target;
     private Vector3 offset = new Vector3(0, 0, -1);
     private static int seed = 0;

@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerController : MonoBehaviour {
-
+public class PlayerController : MonoBehaviour
+{
     [SerializeField] private int maxHp;
     [SerializeField] private Slider healthSlider;
     [SerializeField] private Image fillImage;
@@ -14,7 +14,6 @@ public class PlayerController : MonoBehaviour {
     private int currentHp;
     private GameObject instance;
     private int playerNumber;
-
     private MovementController movement;
     private ShootAction fire;
     private CannonController cannon;

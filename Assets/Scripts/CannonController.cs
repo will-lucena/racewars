@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CannonController : MonoBehaviour {
-
+public class CannonController : MonoBehaviour
+{
     [SerializeField] private float rotationSpeed;
     [SerializeField] private int playerNumber;
     private string rotationAxisName;
-
     private float rotationValue;
 
     void Start()
