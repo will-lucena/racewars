@@ -6,6 +6,7 @@ TagManager:
   tags:
   - shootPosition
   - bullet
+  - cannon
   layers:
   - Default
   - TransparentFX

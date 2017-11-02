@@ -8,24 +8,27 @@ public class ShootAction : MonoBehaviour
 {
     [SerializeField] private GameObject bullet;
     [SerializeField] private Transform shotPoint;
-    [SerializeField] private KeyCode key;
     [SerializeField] private float reloadTime;
     [SerializeField] private Slider ammoSlider;
     [SerializeField] private Image fillImage;
     [SerializeField] private Color zeroAmmoColor;
     [SerializeField] private Color fullAmmoColor;
-    private bool isReloading = false;
+    private string fireButtonName;
+    private bool isReloading;
     private int playerNumber;
+
 
     private void Start()
     {
+        isReloading = false;
         ammoSlider.value = 1f;
         fillImage.color = Color.green;
+        fireButtonName = "Fire" + playerNumber;
     }
 
     private void FixedUpdate()
     {
-        if ((Input.GetKeyDown(key) || Input.GetAxisRaw("Fire") == -1) && !isReloading)
+        if ((Input.GetButtonDown(fireButtonName) || Input.GetAxisRaw(fireButtonName) == -1) && !isReloading)
         {
             isReloading = true;
             Instantiate(bullet, shotPoint.position, shotPoint.rotation * Quaternion.Euler(0, 0, 0));

@@ -10,22 +10,35 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private Image fillImage;
     [SerializeField] private Color zeroHealthColor;
     [SerializeField] private Color fullHealthColor;
-    [SerializeField] private Transform spawnPoint;
+    [SerializeField] private Camera cam;
     private int currentHp;
     private GameObject instance;
     private int playerNumber;
 
-
     private MovementController movement;
-    private ShootAction shooting;
+    private ShootAction fire;
+    private CannonController cannon;
 
     public void setup()
     {
         movement = instance.GetComponent<MovementController>();
-        shooting = instance.GetComponent<ShootAction>();
         movement.setPlayerNumber(playerNumber);
-        shooting.setPlayerNumber(playerNumber);
 
+        fire = instance.GetComponent<ShootAction>();
+        fire.setPlayerNumber(playerNumber);
+
+        for (int i = 0; i < instance.transform.childCount - 1; i++)
+        {
+            if (instance.transform.GetChild(i).transform.name == "Cannon")
+            {
+                cannon = instance.transform.GetChild(i).transform.GetComponent<CannonController>();
+                break;
+            }
+        }
+        cannon.setPlayerNumber(playerNumber);
+
+        cam.GetComponent<CameraController>().setTarget(instance);
+        
         //Modificar as cores dos jogadores TODO: entender como funciona e reimplementar
         /*
         m_ColoredPlayerText = "<color=#" + ColorUtility.ToHtmlStringRGB(m_PlayerColor) + ">PLAYER " + m_PlayerNumber + "</color>";
@@ -46,17 +59,11 @@ public class PlayerController : MonoBehaviour {
         fillImage.color = Color.green;
     }
 
-    private void FixedUpdate()
-    {
-        
-    }
-
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.tag.Equals("bullet"))
         {
-            currentHp -= 3;
-            print(currentHp);
+            currentHp = currentHp - 3;
             Destroy(collision);
             if (currentHp < 0)
             {
@@ -87,11 +94,6 @@ public class PlayerController : MonoBehaviour {
     public GameObject getInstance()
     {
         return instance;
-    }
-
-    public Transform getSpawnPoint()
-    {
-        return spawnPoint;
     }
 
     public void setPlayerNumber(int number)

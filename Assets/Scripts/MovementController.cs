@@ -7,7 +7,7 @@ public class MovementController : MonoBehaviour
     //ajustar speed de rotação
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float movementSpeed;
-    [SerializeField] private int playerNumber;
+    private int playerNumber = 1;
     private string movementAxisName;
     private string rotationAxisName;
 
@@ -34,7 +34,7 @@ public class MovementController : MonoBehaviour
 
     private void move()
     {
-        transform.Translate(Vector2.up * movementSpeed * Time.deltaTime * movementValue);
+        transform.Translate(Vector2.down * movementSpeed * Time.deltaTime * movementValue);
     }
 
     private void rotate()

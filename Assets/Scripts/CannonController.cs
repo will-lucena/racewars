@@ -29,4 +29,9 @@ public class CannonController : MonoBehaviour {
     {
         transform.Rotate(Vector3.back * rotationSpeed * Time.deltaTime * rotationValue);
     }
+
+    public void setPlayerNumber(int number)
+    {
+        playerNumber = number;
+    }
 }
