@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class ArenaManager : MonoBehaviour
 {
-    [SerializeField] private PlayerController[] players;
     [SerializeField] private GameObject tankPrefab;
     [SerializeField] private Transform[] spawnPoints;
 
-	void Start ()
+    private GameObject[] players;
+
+    void Start ()
     {
+        players = new GameObject[2];
         SpawnAllTanks();
     }
 	
@@ -17,10 +19,31 @@ public class ArenaManager : MonoBehaviour
     {
         for (int i = 0; i < players.Length; i++)
         {
-            
-            players[i].setInstance(Instantiate(tankPrefab, spawnPoints[i].position, spawnPoints[i].rotation) as GameObject);
-            players[i].setPlayerNumber(i+1);
-            players[i].setup();
+            players[i] = Instantiate(tankPrefab, spawnPoints[i].position, spawnPoints[i].rotation) as GameObject;
+            players[i].SetActive(false);
+            players[i].GetComponent<PlayerController>().setPlayerNumber(i + 1);
+            players[i].GetComponent<PlayerController>().setup(this);
+            players[i].SetActive(true);
         }
+    }
+
+    private void endGame(GameObject player)
+    {
+        foreach(GameObject p in players)
+        {
+            if (p.Equals(player))
+            {
+                p.GetComponent<PlayerController>().SendMessage("loseMessage");
+            }
+            else
+            {
+                p.GetComponent<PlayerController>().SendMessage("winMessage");
+            }
+        }
+    }
+
+    public void iDie(GameObject player)
+    {
+        endGame(player);
     }
 }

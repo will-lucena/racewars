@@ -12,31 +12,32 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Color fullHealthColor;
     [SerializeField] private Camera cam;
     private int currentHp;
-    private GameObject instance;
     private int playerNumber;
     private MovementController movement;
     private ShootAction fire;
     private CannonController cannon;
+    private ArenaManager arenaManager;
 
-    public void setup()
+    public void setup(ArenaManager manager)
     {
-        movement = instance.GetComponent<MovementController>();
+        movement = GetComponent<MovementController>();
         movement.setPlayerNumber(playerNumber);
 
-        fire = instance.GetComponent<ShootAction>();
+        fire = GetComponent<ShootAction>();
         fire.setPlayerNumber(playerNumber);
 
-        for (int i = 0; i < instance.transform.childCount - 1; i++)
+        for (int i = 0; i < transform.childCount - 1; i++)
         {
-            if (instance.transform.GetChild(i).transform.name == "Cannon")
+            if (transform.GetChild(i).transform.name == "Cannon")
             {
-                cannon = instance.transform.GetChild(i).transform.GetComponent<CannonController>();
+                cannon = transform.GetChild(i).transform.GetComponent<CannonController>();
                 break;
             }
         }
         cannon.setPlayerNumber(playerNumber);
 
-        cam.GetComponent<CameraController>().setTarget(instance);
+        cam.GetComponent<CameraController>().setTarget(gameObject);
+        arenaManager = manager;
         
         //Modificar as cores dos jogadores TODO: entender como funciona e reimplementar
         /*
@@ -66,7 +67,7 @@ public class PlayerController : MonoBehaviour
             Destroy(collision);
             if (currentHp < 0)
             {
-                Destroy(gameObject);
+                arenaManager.SendMessage("iDie", gameObject);
             }
             healthSlider.value = currentHp * 10;
             if (currentHp < maxHp * .7 && currentHp > maxHp * 0.3)
@@ -85,18 +86,24 @@ public class PlayerController : MonoBehaviour
         return currentHp;
     }
 
-    public void setInstance(GameObject gameObject)
-    {
-        instance = gameObject;
-    }
-
-    public GameObject getInstance()
-    {
-        return instance;
-    }
-
     public void setPlayerNumber(int number)
     {
         playerNumber = number;
+    }
+
+    public int getPlayerNumber()
+    {
+        return playerNumber;
+    }
+
+    public void winMessage()
+    {
+        Debug.Log(playerNumber + " wins");
+    }
+
+    public void loseMessage()
+    {
+        Debug.Log(playerNumber + " lose");
+        gameObject.SetActive(false);
     }
 }
