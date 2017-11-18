@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SelectionScript : MonoBehaviour
 {
@@ -61,5 +63,13 @@ public class SelectionScript : MonoBehaviour
         }
         playerSelection[playerIndex].transform.position = new Vector3(characters[index].transform.position.x, characters[index].transform.position.y + 6.3f, 0);
         return index;
+    }
+
+    public void startGame()
+    {
+        PersistanceScript.INSTANCE.player1Selection = characters[player1CharSelected].GetComponent<Image>().color;
+        PersistanceScript.INSTANCE.player2Selection = characters[player2CharSelected].GetComponent<Image>().color;
+
+        SceneManager.LoadScene("main");
     }
 }

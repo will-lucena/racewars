@@ -38,7 +38,17 @@ public class PlayerController : MonoBehaviour
 
         cam.GetComponent<CameraController>().setTarget(gameObject);
         arenaManager = manager;
-        
+
+        if (playerNumber == 1)
+        {
+            GetComponent<SpriteRenderer>().color = PersistanceScript.INSTANCE.player1Selection;
+        }
+
+        if (playerNumber == 2)
+        {
+            GetComponent<SpriteRenderer>().color = PersistanceScript.INSTANCE.player2Selection;
+        }
+
         //Modificar as cores dos jogadores TODO: entender como funciona e reimplementar
         /*
         m_ColoredPlayerText = "<color=#" + ColorUtility.ToHtmlStringRGB(m_PlayerColor) + ">PLAYER " + m_PlayerNumber + "</color>";
