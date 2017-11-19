@@ -456,6 +456,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  winAnimation: {fileID: 1641583059165790, guid: ed7b2e9c97a79bd438cfdd7610e4b5cf,
+    type: 2}
+  loseAnimation: {fileID: 1369763764063174, guid: d3077f57d4a09dc4a9e8cf5e0880775d,
+    type: 2}
 --- !u!114 &114201942027122026
 MonoBehaviour:
   m_ObjectHideFlags: 1

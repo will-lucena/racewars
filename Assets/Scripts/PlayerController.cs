@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
         cam.GetComponent<CameraController>().setTarget(gameObject);
         arenaManager = manager;
 
+        //*
         if (playerNumber == 1)
         {
             GetComponent<SpriteRenderer>().color = PersistanceScript.INSTANCE.player1Selection;
@@ -47,17 +48,6 @@ public class PlayerController : MonoBehaviour
         if (playerNumber == 2)
         {
             GetComponent<SpriteRenderer>().color = PersistanceScript.INSTANCE.player2Selection;
-        }
-
-        //Modificar as cores dos jogadores TODO: entender como funciona e reimplementar
-        /*
-        m_ColoredPlayerText = "<color=#" + ColorUtility.ToHtmlStringRGB(m_PlayerColor) + ">PLAYER " + m_PlayerNumber + "</color>";
-
-        MeshRenderer[] renderers = m_Instance.GetComponentsInChildren<MeshRenderer>();
-
-        for (int i = 0; i < renderers.Length; i++)
-        {
-            renderers[i].material.color = m_PlayerColor;
         }
         /**/
     }
@@ -109,11 +99,12 @@ public class PlayerController : MonoBehaviour
     public void winMessage()
     {
         Debug.Log(playerNumber + " wins");
+        cam.SendMessage("activateWinMessage");
     }
 
     public void loseMessage()
     {
         Debug.Log(playerNumber + " lose");
-        gameObject.SetActive(false);
+        cam.SendMessage("activateLoseMessage");
     }
 }

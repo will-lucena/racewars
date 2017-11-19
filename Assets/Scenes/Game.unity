@@ -216,9 +216,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86a3ed0ea460bf642b1f2457a0dc83e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  players:
-  - {fileID: 114387821076783008, guid: 3089525ac84194c46a5dfa5812aa78c0, type: 2}
-  - {fileID: 114387821076783008, guid: 3089525ac84194c46a5dfa5812aa78c0, type: 2}
   tankPrefab: {fileID: 1404267848104900, guid: 3089525ac84194c46a5dfa5812aa78c0, type: 2}
   spawnPoints:
   - {fileID: 777290334}

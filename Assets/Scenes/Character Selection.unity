@@ -434,6 +434,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaa1da1ec55cac5489f9de72cd38fdb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player1Selection: {r: 0, g: 0, b: 0, a: 0}
+  player2Selection: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &980850428
 GameObject:
   m_ObjectHideFlags: 0
