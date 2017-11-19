@@ -39,7 +39,6 @@ public class PlayerController : MonoBehaviour
         cam.GetComponent<CameraController>().setTarget(gameObject);
         arenaManager = manager;
 
-        //*
         if (playerNumber == 1)
         {
             GetComponent<SpriteRenderer>().color = PersistanceScript.INSTANCE.player1Selection;
@@ -49,7 +48,6 @@ public class PlayerController : MonoBehaviour
         {
             GetComponent<SpriteRenderer>().color = PersistanceScript.INSTANCE.player2Selection;
         }
-        /**/
     }
 
     private void Start()

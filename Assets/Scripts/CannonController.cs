@@ -13,7 +13,6 @@ public class CannonController : MonoBehaviour
     {
         rotationAxisName = "Cannon" + playerNumber;
 
-        //*
         if (playerNumber == 1)
         {
             GetComponent<SpriteRenderer>().color = PersistanceScript.INSTANCE.player1Selection;
@@ -23,7 +22,6 @@ public class CannonController : MonoBehaviour
         {
             GetComponent<SpriteRenderer>().color = PersistanceScript.INSTANCE.player2Selection;
         }
-        /**/
     }
 
     private void Update()

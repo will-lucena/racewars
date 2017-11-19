@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class CameraController : MonoBehaviour
 {
@@ -50,7 +49,7 @@ public class CameraController : MonoBehaviour
         Instantiate(winAnimation, transform);
         cam.cullingMask = 1 << LayerMask.NameToLayer("winMessageLayer");
         yield return new WaitForSeconds(3);
-        SceneManager.LoadScene(0);
+        new LoadScene().loadScene("Menu");
     }
 
     public void activateLoseMessage()
