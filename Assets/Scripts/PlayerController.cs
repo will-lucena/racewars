@@ -6,11 +6,11 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private int maxHp;
-    [SerializeField] private Slider healthSlider;
-    [SerializeField] private Image fillImage;
-    [SerializeField] private Color zeroHealthColor;
-    [SerializeField] private Color fullHealthColor;
-    [SerializeField] private Camera cam;
+    //[SerializeField] private Slider healthSlider;
+    //[SerializeField] private Image fillImage;
+    //[SerializeField] private Color zeroHealthColor;
+    //[SerializeField] private Color fullHealthColor;
+    //[SerializeField] private Camera cam;
     private int currentHp;
     private int playerNumber;
     private MovementController movement;
@@ -36,25 +36,25 @@ public class PlayerController : MonoBehaviour
         }
         cannon.setPlayerNumber(playerNumber);
 
-        cam.GetComponent<CameraController>().setTarget(gameObject);
+        //cam.GetComponent<CameraController>().setTarget(gameObject);
         arenaManager = manager;
 
         if (playerNumber == 1)
         {
-            GetComponent<SpriteRenderer>().color = PersistanceScript.INSTANCE.player1Selection;
+            //GetComponent<SpriteRenderer>().color = PersistanceScript.INSTANCE.player1Selection;
         }
 
         if (playerNumber == 2)
         {
-            GetComponent<SpriteRenderer>().color = PersistanceScript.INSTANCE.player2Selection;
+            //GetComponent<SpriteRenderer>().color = PersistanceScript.INSTANCE.player2Selection;
         }
     }
 
     private void Start()
     {
         currentHp = maxHp;
-        healthSlider.value = currentHp * 10;
-        fillImage.color = Color.green;
+        //healthSlider.value = currentHp * 10;
+        //fillImage.color = Color.green;
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -67,14 +67,14 @@ public class PlayerController : MonoBehaviour
             {
                 arenaManager.SendMessage("iDie", gameObject);
             }
-            healthSlider.value = currentHp * 10;
+            //healthSlider.value = currentHp * 10;
             if (currentHp < maxHp * .7 && currentHp > maxHp * 0.3)
             {
-                fillImage.color = Color.yellow;
+                //fillImage.color = Color.yellow;
             }
             else if (currentHp <= maxHp * 0.3)
             {
-                fillImage.color = Color.red;
+                //fillImage.color = Color.red;
             }
         }
     }
@@ -96,12 +96,12 @@ public class PlayerController : MonoBehaviour
 
     public void winMessage()
     {
-        cam.SendMessage("activateWinMessage");
+        //cam.SendMessage("activateWinMessage");
     }
 
     public void loseMessage()
     {
-        cam.SendMessage("activateLoseMessage");
+        //cam.SendMessage("activateLoseMessage");
     }
 
     public void endLoop()

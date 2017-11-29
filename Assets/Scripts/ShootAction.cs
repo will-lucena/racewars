@@ -9,10 +9,10 @@ public class ShootAction : MonoBehaviour
     [SerializeField] private GameObject bullet;
     [SerializeField] private Transform shotPoint;
     [SerializeField] private float reloadTime;
-    [SerializeField] private Slider ammoSlider;
-    [SerializeField] private Image fillImage;
-    [SerializeField] private Color zeroAmmoColor;
-    [SerializeField] private Color fullAmmoColor;
+    //[SerializeField] private Slider ammoSlider;
+    //[SerializeField] private Image fillImage;
+    //[SerializeField] private Color zeroAmmoColor;
+    //[SerializeField] private Color fullAmmoColor;
     private string fireButtonName;
     private bool isReloading;
     private int playerNumber;
@@ -21,8 +21,8 @@ public class ShootAction : MonoBehaviour
     private void Start()
     {
         isReloading = false;
-        ammoSlider.value = 1f;
-        fillImage.color = Color.green;
+        //ammoSlider.value = 1f;
+        //fillImage.color = Color.green;
         fireButtonName = "Fire" + playerNumber;
     }
 
@@ -45,6 +45,7 @@ public class ShootAction : MonoBehaviour
 
     private IEnumerator reloadAnimation(float time)
     {
+        /*
         fillImage.color = Color.red;
         ammoSlider.value = .0f;
         yield return new WaitForSeconds(time * 0.3f);
@@ -55,6 +56,8 @@ public class ShootAction : MonoBehaviour
         yield return new WaitForSeconds(time * 0.3f);
         ammoSlider.value = 1f;
         fillImage.color = Color.green;
+        /**/
+        yield return null;
     }
 
     public void setPlayerNumber(int number)
