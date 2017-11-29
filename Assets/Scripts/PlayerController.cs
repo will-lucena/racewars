@@ -96,13 +96,16 @@ public class PlayerController : MonoBehaviour
 
     public void winMessage()
     {
-        Debug.Log(playerNumber + " wins");
         cam.SendMessage("activateWinMessage");
     }
 
     public void loseMessage()
     {
-        Debug.Log(playerNumber + " lose");
         cam.SendMessage("activateLoseMessage");
+    }
+
+    public void endLoop()
+    {
+        arenaManager.SendMessage("endLoop");
     }
 }

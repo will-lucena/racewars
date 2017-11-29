@@ -8,6 +8,8 @@ public class PersistanceScript : MonoBehaviour
 
     public Color player1Selection;
     public Color player2Selection;
+    [HideInInspector] public Rect cam1Rect = new Rect(0f, 0f, 0.5f, 1f);
+    [HideInInspector] public Rect cam2Rect = new Rect(0.5f, 0f, 0.5f, 1f);
 
     void Awake()
     {

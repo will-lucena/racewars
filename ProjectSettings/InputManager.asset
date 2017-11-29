@@ -22,7 +22,7 @@ InputManager:
     axis: 0
     joyNum: 0
   - serializedVersion: 3
-    m_Name: Horizontal1
+    m_Name: Horizontal2
     descriptiveName: Player1 rotation keyboard controller
     descriptiveNegativeName: 
     negativeButton: a
@@ -54,7 +54,7 @@ InputManager:
     axis: 0
     joyNum: 1
   - serializedVersion: 3
-    m_Name: Horizontal2
+    m_Name: Horizontal1
     descriptiveName: Player2 rotation keyboard controller
     descriptiveNegativeName: 
     negativeButton: left
@@ -102,7 +102,7 @@ InputManager:
     axis: 0
     joyNum: 0
   - serializedVersion: 3
-    m_Name: Vertical1
+    m_Name: Vertical2
     descriptiveName: Player1 movement keyboard controller
     descriptiveNegativeName: 
     negativeButton: w
@@ -134,7 +134,7 @@ InputManager:
     axis: 1
     joyNum: 1
   - serializedVersion: 3
-    m_Name: Vertical2
+    m_Name: Vertical1
     descriptiveName: Player2 movement keyboard controller
     descriptiveNegativeName: 
     negativeButton: up
@@ -166,7 +166,7 @@ InputManager:
     axis: 1
     joyNum: 2
   - serializedVersion: 3
-    m_Name: Cannon1
+    m_Name: Cannon2
     descriptiveName: Player1 cannon keyboard controller
     descriptiveNegativeName: 
     negativeButton: j
@@ -198,7 +198,7 @@ InputManager:
     axis: 3
     joyNum: 1
   - serializedVersion: 3
-    m_Name: Cannon2
+    m_Name: Cannon1
     descriptiveName: Player2 cannon keyboard controller
     descriptiveNegativeName: 
     negativeButton: 4
@@ -262,7 +262,7 @@ InputManager:
     axis: 5
     joyNum: 1
   - serializedVersion: 3
-    m_Name: Selection1
+    m_Name: Selection2
     descriptiveName: Player1 selection keyboard controller
     descriptiveNegativeName: 
     negativeButton: a
@@ -310,7 +310,7 @@ InputManager:
     axis: 5
     joyNum: 2
   - serializedVersion: 3
-    m_Name: Selection2
+    m_Name: Selection1
     descriptiveName: Player2 selection keyboard controller
     descriptiveNegativeName: 
     negativeButton: left
@@ -326,7 +326,7 @@ InputManager:
     axis: 0
     joyNum: 2
   - serializedVersion: 3
-    m_Name: Fire1
+    m_Name: Fire2
     descriptiveName: Player1 fire keyboard button
     descriptiveNegativeName: 
     negativeButton: 
@@ -358,7 +358,7 @@ InputManager:
     axis: 2
     joyNum: 1
   - serializedVersion: 3
-    m_Name: Fire2
+    m_Name: Fire1
     descriptiveName: Player2 fire keyboard button
     descriptiveNegativeName: 
     negativeButton: 
