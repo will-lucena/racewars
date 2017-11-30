@@ -6,17 +6,15 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private int maxHp;
-    //[SerializeField] private Slider healthSlider;
-    //[SerializeField] private Image fillImage;
-    //[SerializeField] private Color zeroHealthColor;
-    //[SerializeField] private Color fullHealthColor;
-    //[SerializeField] private Camera cam;
+
     private int currentHp;
     private int playerNumber;
     private MovementController movement;
     private ShootAction fire;
     private CannonController cannon;
     private ArenaManager arenaManager;
+    private BarController ammo;
+    private BarController health;
 
     public void setup(ArenaManager manager)
     {
@@ -25,18 +23,25 @@ public class PlayerController : MonoBehaviour
 
         fire = GetComponent<ShootAction>();
         fire.setPlayerNumber(playerNumber);
+        fire.setPlayer(GetComponent<PlayerController>());
 
-        for (int i = 0; i < transform.childCount - 1; i++)
+        for (int i = 0; i < transform.childCount; i++)
         {
             if (transform.GetChild(i).transform.name == "Cannon")
             {
                 cannon = transform.GetChild(i).transform.GetComponent<CannonController>();
-                break;
+            }
+            if (transform.GetChild(i).transform.name == "AmmoBar")
+            {
+                ammo = transform.GetChild(i).transform.GetComponent<BarController>();
+            }
+            if (transform.GetChild(i).transform.name == "HealthBar")
+            {
+                health = transform.GetChild(i).transform.GetComponent<BarController>();
             }
         }
         cannon.setPlayerNumber(playerNumber);
 
-        //cam.GetComponent<CameraController>().setTarget(gameObject);
         arenaManager = manager;
 
         if (playerNumber == 1)
@@ -53,8 +58,6 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         currentHp = maxHp;
-        //healthSlider.value = currentHp * 10;
-        //fillImage.color = Color.green;
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -62,20 +65,12 @@ public class PlayerController : MonoBehaviour
         if (collision.tag.Equals("bullet"))
         {
             currentHp = currentHp - 3;
-            Destroy(collision);
+            Destroy(collision.gameObject);
             if (currentHp < 0)
             {
                 arenaManager.SendMessage("iDie", gameObject);
             }
-            //healthSlider.value = currentHp * 10;
-            if (currentHp < maxHp * .7 && currentHp > maxHp * 0.3)
-            {
-                //fillImage.color = Color.yellow;
-            }
-            else if (currentHp <= maxHp * 0.3)
-            {
-                //fillImage.color = Color.red;
-            }
+            health.SendMessage("action", 3);
         }
     }
 
@@ -107,5 +102,22 @@ public class PlayerController : MonoBehaviour
     public void endLoop()
     {
         arenaManager.SendMessage("endLoop");
+    }
+
+    public void reload(float time)
+    {
+        StartCoroutine(reloadAnimation(time));
+    }
+
+    private IEnumerator reloadAnimation(float time)
+    {
+        float deltaTime = 0f;
+        ammo.SendMessage("action", 1);
+        while (deltaTime < time)
+        {
+            ammo.SendMessage("action", -Time.deltaTime);
+            deltaTime += Time.deltaTime;
+            yield return null;
+        }
     }
 }
