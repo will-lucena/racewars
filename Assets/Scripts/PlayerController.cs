@@ -46,12 +46,12 @@ public class PlayerController : MonoBehaviour
 
         if (playerNumber == 1)
         {
-            //GetComponent<SpriteRenderer>().color = PersistanceScript.INSTANCE.player1Selection;
+            GetComponent<SpriteRenderer>().color = PersistanceScript.INSTANCE.player1Selection;
         }
 
         if (playerNumber == 2)
         {
-            //GetComponent<SpriteRenderer>().color = PersistanceScript.INSTANCE.player2Selection;
+            GetComponent<SpriteRenderer>().color = PersistanceScript.INSTANCE.player2Selection;
         }
     }
 
@@ -70,7 +70,10 @@ public class PlayerController : MonoBehaviour
             {
                 arenaManager.SendMessage("iDie", gameObject);
             }
-            health.SendMessage("action", 3);
+            else
+            {
+                health.SendMessage("action", 3);
+            }
         }
     }
 
@@ -89,21 +92,6 @@ public class PlayerController : MonoBehaviour
         return playerNumber;
     }
 
-    public void winMessage()
-    {
-        //cam.SendMessage("activateWinMessage");
-    }
-
-    public void loseMessage()
-    {
-        //cam.SendMessage("activateLoseMessage");
-    }
-
-    public void endLoop()
-    {
-        arenaManager.SendMessage("endLoop");
-    }
-
     public void reload(float time)
     {
         StartCoroutine(reloadAnimation(time));
@@ -119,5 +107,10 @@ public class PlayerController : MonoBehaviour
             deltaTime += Time.deltaTime;
             yield return null;
         }
+    }
+
+    public void disable()
+    {
+        gameObject.SetActive(false);
     }
 }

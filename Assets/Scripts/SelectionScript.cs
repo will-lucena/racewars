@@ -30,9 +30,9 @@ public class SelectionScript : MonoBehaviour
                                                                 characters[0].transform.position.y);
 
         player2CharSelected = 0;
-        delay = 0.2f;
-        player1timePassed = 0.3f;
-        player2timePassed = 0.3f;
+        delay = 0.1f;
+        player1timePassed = delay + 0.1f;
+        player2timePassed = delay + 0.1f;
     }
 	
 	void Update ()
@@ -69,5 +69,7 @@ public class SelectionScript : MonoBehaviour
     {
         PersistanceScript.INSTANCE.player1Selection = characters[player1CharSelected].GetComponent<Image>().color;
         PersistanceScript.INSTANCE.player2Selection = characters[player2CharSelected].GetComponent<Image>().color;
+        PersistanceScript.INSTANCE.player1Victories = 0;
+        PersistanceScript.INSTANCE.player2Victories = 0;
     }
 }

@@ -15,12 +15,12 @@ public class CannonController : MonoBehaviour
 
         if (playerNumber == 1)
         {
-            //GetComponent<SpriteRenderer>().color = PersistanceScript.INSTANCE.player1Selection;
+            GetComponent<SpriteRenderer>().color = PersistanceScript.INSTANCE.player1Selection;
         }
 
         if (playerNumber == 2)
         {
-            //GetComponent<SpriteRenderer>().color = PersistanceScript.INSTANCE.player2Selection;
+            GetComponent<SpriteRenderer>().color = PersistanceScript.INSTANCE.player2Selection;
         }
     }
 

@@ -29,21 +29,23 @@ public class ArenaManager : MonoBehaviour
 
     private void endGame(GameObject player)
     {
-        foreach(GameObject p in players)
+        if (player.GetComponent<PlayerController>().getPlayerNumber() == 1)
         {
-            if (p.Equals(player))
-            {
-                p.GetComponent<PlayerController>().SendMessage("loseMessage");
-            }
-            else
-            {
-                p.GetComponent<PlayerController>().SendMessage("winMessage");
-            }
+            PersistanceScript.INSTANCE.player2Victories++;
         }
+        else
+        {
+            PersistanceScript.INSTANCE.player1Victories++;
+        }
+        GetComponentInParent<MessagesController>().updateText();
     }
 
     public void iDie(GameObject player)
     {
+        foreach(GameObject p in players)
+        {
+            p.GetComponent<PlayerController>().disable();
+        }
         endGame(player);
     }
 
