@@ -4,6 +4,7 @@ Obj/
 Build/
 Builds/
 Assets/AssetStoreTools*
+UnitypackageManager/
 
 # Visual Studio 2015 cache directory
 /.vs/
