@@ -48,8 +48,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 1828659937000926}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: accb0043ed8c1534cb0e5aa0ad1e29ac, type: 3}
+  m_Script: {fileID: 11500000, guid: eaa1da1ec55cac5489f9de72cd38fdb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1Selection: {r: 0, g: 0, b: 0, a: 0}
-  player2Selection: {r: 0, g: 0, b: 0, a: 0}
+  player1Selection: {r: 1, g: 1, b: 1, a: 1}
+  player2Selection: {r: 1, g: 1, b: 1, a: 1}
+  player1Victories: 0
+  player2Victories: 0
+  cam1Rect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0.5
+    height: 1
+  cam2Rect:
+    serializedVersion: 2
+    x: 0.5
+    y: 0
+    width: 0.5
+    height: 1
