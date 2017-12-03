@@ -227,7 +227,7 @@ InputManager:
     snap: 1
     invert: 0
     type: 2
-    axis: 3
+    axis: 2
     joyNum: 2
   - serializedVersion: 3
     m_Name: Selection1
@@ -373,22 +373,6 @@ InputManager:
     type: 0
     axis: 0
     joyNum: 0
-  - serializedVersion: 3
-    m_Name: Fire2
-    descriptiveName: Player2 fire joystick button
-    descriptiveNegativeName: 
-    negativeButton: 
-    positiveButton: 
-    altNegativeButton: 
-    altPositiveButton: 
-    gravity: 3
-    dead: 0.001
-    sensitivity: 1
-    snap: 1
-    invert: 0
-    type: 2
-    axis: 2
-    joyNum: 2
   - serializedVersion: 3
     m_Name: Jump
     descriptiveName: 

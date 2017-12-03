@@ -23,12 +23,26 @@ public class ShootAction : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if ((Input.GetButtonDown(fireButtonName) || Input.GetAxisRaw(fireButtonName) == -1) && !isReloading)
+        if (playerNumber == 2)
         {
-            isReloading = true;
-            Instantiate(bullet, shotPoint.position, shotPoint.rotation * Quaternion.Euler(0, 0, 0));
-            StartCoroutine(reload(reloadTime));
-            player.SendMessage("reload", reloadTime);
+            if ((Input.GetButtonDown(fireButtonName) || Input.GetKeyDown(KeyCode.Joystick2Button7)) && !isReloading)
+            {
+                isReloading = true;
+                Instantiate(bullet, shotPoint.position, shotPoint.rotation * Quaternion.Euler(0, 0, 0));
+                StartCoroutine(reload(reloadTime));
+                player.SendMessage("reload", reloadTime);
+            }
+        }
+
+        if (playerNumber == 1)
+        {
+            if ((Input.GetButtonDown(fireButtonName) || Input.GetAxisRaw(fireButtonName) < 0) && !isReloading)
+            {
+                isReloading = true;
+                Instantiate(bullet, shotPoint.position, shotPoint.rotation * Quaternion.Euler(0, 0, 0));
+                StartCoroutine(reload(reloadTime));
+                player.SendMessage("reload", reloadTime);
+            }
         }
     }
 

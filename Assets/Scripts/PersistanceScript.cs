@@ -12,6 +12,9 @@ public class PersistanceScript : MonoBehaviour
     public int player2Victories = 0;
     [HideInInspector] public Rect cam1Rect = new Rect(0f, 0f, 0.5f, 1f);
     [HideInInspector] public Rect cam2Rect = new Rect(0.5f, 0f, 0.5f, 1f);
+    [HideInInspector] public static string MenuScene = "Menu";
+    [HideInInspector] public static string SelectionScene = "Character Selection";
+    [HideInInspector] public static string ArenaScene = "Arena";
 
     void Awake()
     {

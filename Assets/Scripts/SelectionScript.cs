@@ -37,6 +37,12 @@ public class SelectionScript : MonoBehaviour
 	
 	void Update ()
     {
+        if (Input.GetKeyDown(KeyCode.Joystick1Button0))
+        {
+            startGame();
+            GetComponentInParent<LoadScene>().loadScene(PersistanceScript.ArenaScene);
+        }
+
         if (player1timePassed > delay)
         {
             player1CharSelected = changeSelectionPosition(0, player1CharSelected, (int)Input.GetAxisRaw(PLAYER1_AXIS));
