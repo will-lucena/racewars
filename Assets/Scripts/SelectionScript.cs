@@ -69,7 +69,5 @@ public class SelectionScript : MonoBehaviour
     {
         PersistanceScript.INSTANCE.player1Selection = characters[player1CharSelected].GetComponent<Image>().color;
         PersistanceScript.INSTANCE.player2Selection = characters[player2CharSelected].GetComponent<Image>().color;
-
-        new LoadScene().loadScene("Game");
     }
 }

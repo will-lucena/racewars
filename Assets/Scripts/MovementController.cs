@@ -6,6 +6,7 @@ public class MovementController : MonoBehaviour
 {
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float movementSpeed;
+    [SerializeField] private Animator anim;
     private int playerNumber = 1;
     private string movementAxisName;
     private string rotationAxisName;
@@ -22,6 +23,15 @@ public class MovementController : MonoBehaviour
     {
         movementValue = Input.GetAxis(movementAxisName);
         rotationValue = Input.GetAxis(rotationAxisName);
+
+        if (movementValue == 0)
+        {
+            anim.enabled = false;
+        }
+        else
+        {
+            anim.enabled = true;
+        }
     }
 
     private void FixedUpdate()

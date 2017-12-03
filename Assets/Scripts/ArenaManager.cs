@@ -46,4 +46,9 @@ public class ArenaManager : MonoBehaviour
     {
         endGame(player);
     }
+
+    public void endLoop()
+    {
+        GetComponentInParent<LoadScene>().SendMessage("loadScene", "Menu");
+    }
 }
