@@ -23,6 +23,11 @@ public class ShootAction : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            player.SendMessage("quit");
+        }
+
         if (playerNumber == 2)
         {
             if ((Input.GetButtonDown(fireButtonName) || Input.GetKeyDown(KeyCode.Joystick2Button7)) && !isReloading)

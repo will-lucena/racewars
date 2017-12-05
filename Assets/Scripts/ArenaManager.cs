@@ -48,4 +48,9 @@ public class ArenaManager : MonoBehaviour
         }
         endGame(player);
     }
+
+    public void quit()
+    {
+        GetComponentInParent<LoadScene>().loadScene(PersistanceScript.MenuScene);
+    }
 }

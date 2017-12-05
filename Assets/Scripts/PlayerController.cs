@@ -113,4 +113,9 @@ public class PlayerController : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+
+    public void quit()
+    {
+        arenaManager.SendMessage("quit");
+    }
 }
