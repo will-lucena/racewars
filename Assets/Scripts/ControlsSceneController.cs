@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MenuController : MonoBehaviour
-{	
-	// Update is called once per frame
-	void Update ()
+public class ControlsSceneController : MonoBehaviour
+{
+    // Update is called once per frame
+    void Update()
     {
         if (Input.GetKeyDown(KeyCode.Joystick1Button0))
         {
@@ -13,7 +13,7 @@ public class MenuController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Joystick1Button1) || Input.GetKeyDown(KeyCode.Escape))
         {
-            GetComponentInParent<LoadScene>().quit();
+            GetComponentInParent<LoadScene>().loadScene(PersistanceScript.MenuScene);
         }
     }
 }

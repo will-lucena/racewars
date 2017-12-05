@@ -15,6 +15,7 @@ public class PersistanceScript : MonoBehaviour
     [HideInInspector] public static string MenuScene = "Menu";
     [HideInInspector] public static string SelectionScene = "Character Selection";
     [HideInInspector] public static string ArenaScene = "Arena";
+    [HideInInspector] public static string ControllersScene = "Controls";
 
     void Awake()
     {
